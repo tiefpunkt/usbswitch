@@ -1,0 +1,22 @@
+RaumZeitLabor USB Switch
+========================
+
+Powerswitch für USB-Devices wie USB-LEDs, USB-Ventilatoren
+
+PC ---> [ USB --> Board --> USB ] --> Device
+
+* ATtiny 25 mit V-USB, emuliertes serielles Device
+  * http://www.bobhobby.com/2008/04/22/usb-physical-hit-counter-based-on-avr-attiny25/
+  * Reichelt: ATTINY 25-20 PU
+* PNP-Transistor zum Schalten der +5V-Leitung zum USB-Device
+  * http://www.kpsec.freeuk.com/trancirc.htm
+* DATA-Leitungen am Device-Port auf Masse
+* Masse ungeschaltet
+
+Schaltung des USB-Ports
+-----------------------
+PNP-Transistor
+max. IC strom: 400mA, max strom an USB-Port: 500mA --> hFE(min) > 5*500mA/40mA = 62,5
+
+für Prototyp: BC327-25: hFE(min) = 100
+--> R_B = 200 Ohm
